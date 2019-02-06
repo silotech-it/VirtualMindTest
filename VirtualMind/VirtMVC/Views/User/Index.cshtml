@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    <a href="@Url.Action("AddOrDelete","User")" class="btn btn-default"><i class="fa fa-plus"></i> Create New</a>
+    <a href="@Url.Action("AddOrEdit","User")" class="btn btn-default"><i class="fa fa-plus"></i> Create New</a>
 </p>
 <table class="table table-striped">
     <thead class="table-bordered" style="background-color:aquamarine">
@@ -42,11 +42,26 @@
             @Html.DisplayFor(modelItem => item.password)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            <a href="@Url.Action("AddOrEdit", "User", new { id = item.id })">Edit</a> |
+            <a onclick="Delete(@item.id)" style="cursor:pointer">Delete</a>
         </td>
     </tr>
 }
 
 </table>
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SucessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+
+        function Delete(id) {
+            alertify.confirm('VirtualmindTest', 'Are you absolute sure you desire to remove this item?', function () {
+                window.location.href = '@Url.Action("Delete","User")/' + id;
+            }, null);
+        }
+    </script>
+}
