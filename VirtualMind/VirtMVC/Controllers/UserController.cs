@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +17,8 @@ namespace VirtMVC.Controllers
             IEnumerable<mvcUserModel> userList;
             HttpResponseMessage response = GlobalVariables.webApiClient.GetAsync("User").Result;
             userList = response.Content.ReadAsAsync<IEnumerable<mvcUserModel>>().Result;
+
+            //var recipiente = (new WebClient().DownloadString("https://www.bancoprovincia.com.ar/Principal/Dolar"));
 
             return View(userList);
         }

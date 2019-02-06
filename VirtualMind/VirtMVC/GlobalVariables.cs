@@ -17,5 +17,6 @@ namespace VirtMVC
             webApiClient.DefaultRequestHeaders.Clear();
             webApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
+
     }
 }
