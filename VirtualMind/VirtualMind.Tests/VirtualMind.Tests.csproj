@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DolarControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\ValuesControllerTest.cs" />
@@ -109,6 +110,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VirtMVC\VirtMVC.csproj">
+      <Project>{3c4bb97c-c3de-41f1-bfd5-2ddf2af3690c}</Project>
+      <Name>VirtMVC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VirtualMind\VirtualMind.csproj">
       <Project>{1DA9CF47-BE6D-4391-9689-B815C1C5A105}</Project>
       <Name>VirtualMind</Name>
