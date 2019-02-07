@@ -18,8 +18,6 @@ namespace VirtMVC.Controllers
             HttpResponseMessage response = GlobalVariables.webApiClient.GetAsync("User").Result;
             userList = response.Content.ReadAsAsync<IEnumerable<mvcUserModel>>().Result;
 
-            //var recipiente = (new WebClient().DownloadString("https://www.bancoprovincia.com.ar/Principal/Dolar"));
-
             return View(userList);
         }
 
