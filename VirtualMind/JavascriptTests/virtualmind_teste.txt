@@ -1,0 +1,105 @@
+Test de Javascript:
+
+1. Define a prototype for a class named "Employee".
+An employee has a first name, last name and a salary.
+Provide a method for increasing their salary by 1,000
+Provide a method for displaying the employee details
+
+ANSWER:
+var Employee = function (name, company, salary) {
+  this.name = name || "none";       
+  this.company = company || "none";
+  this.salary = salary || 0;
+
+  // We can create a method like this:
+  this.display = function () {
+      return "name: " + this.name +
+             " - Company: " + this.company + 
+             " - Salary: $ " + this.salary; 
+  };
+
+  this.increaseSalary = function () {
+	this.salary += 1000;
+  };
+
+};
+
+2. Write a function called "MultiplyBy" which will produce the following outputs when invoked:
+console.log(mul(2)(3)(4)); // output : 24 
+console.log(mul(4)(3)(4)); // output : 48
+
+ANSWER:
+
+function mul (a) {
+  return function (b) { 
+    return function (c) {
+      return a * b * c;
+    };
+  };
+}
+
+3. Write a function that accept a list of country names as input and returns the longest country name as output.
+Sample function : Longest_Country_Name(["Australia", "Germany", "United States of America"])
+Expected output : "United States of America"
+
+ANSWER:
+
+function Longest_Country_Name(countryName)
+  {
+  return countryName.reduce(function(longName, countryName) 
+  {
+    return longName.length > countryName.length ? longName : countryName;
+  });
+}
+console.log(Longest_Country_Name(["Australia", "Germany", "United States of America"]));
+
+4. Write a function that removes items from a dropdown list.
+Sample HTML file:
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Remove items from a dropdown list</title>
+</head><body><form>
+<select id="colorSelect">
+<option>Red</option>
+<option>Green</option>
+<option>White</option>
+<option>Black</option>
+</select>
+<input type="button" onclick="removecolor()" value="Select and Remove">
+</form></body></html>
+
+ANSWER:
+
+function removecolor()
+{
+var x=document.getElementById("colorSelect");
+x.remove(x.selectedIndex);
+}
+
+5. Write a JavaScript function to add rows to a table. 
+Sample HTML file:
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Insert row in a table</title>
+</head><body>
+<table id="sampleTable" border="1">
+<tr><td>Row1 cell1</td>
+<td>Row1 cell2</td></tr>
+<tr><td>Row2 cell1</td>
+<td>Row2 cell2</td></tr>
+</table><br>
+<input type="button" onclick="insert_Row()" value="Insert row"> 
+</body></html>
+
+ANSWER:
+
+function insert_Row()
+{
+var x=document.getElementById('sampleTable').insertRow(0);
+var y = x.insertCell(0);
+var z = x.insertCell(1);
+y.innerHTML="New Cell1";
+z.innerHTML="New Cell2";
+}
